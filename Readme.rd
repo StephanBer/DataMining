@@ -11,53 +11,6 @@ URL:
 Description:      
 
 
-
-============================================================
-
-Play information
-
-
-
-Free For All:     
-
-Team Deathmatch:  
-
-Tournament:       
-
-Capture The Flag: 
-
-One Flag CTF:     
-
-Overload:         
-
-Harvester:        
-
-Elimination:      
-
-CTF Elimination:  
-
-Last Man Standing:
-
-Double Domination:
-
-Domination:       
-
-Botplay:          
-
-New Sounds:       
-
-New Graphics:     
-
-New Music:        
-
-
-
-How to play:      Unzip the pk3 file into the baseoa folder
-
-                  Start OpenArena
-
-                  Select  from the Skirmish or Create Server menu
-
 ============================================================
 
 Info
