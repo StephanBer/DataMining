@@ -7,8 +7,17 @@ var T = new Twit({
     access_token_secret: 'APx2Prh8pxeXTeIvGdFbuWNb3nz0DjTtze3ozOX2o4IFK'
 });
 
-function getTweets() {
-    T.get('search/tweets', { q: 'citroen since:2017-10-24', count: 2 }, function(err, data, response) {
-        return data;
+/*T:get retourne les tweets
+since: year-month-day*/
+function getTweets(sujet, date) {
+    return new Promise(function (fulfill, reject) {
+        T.get('search/tweets', {q: sujet + ' since:' + date, count: 2})
+            .then(function (result) {
+                fulfill(result.data.statuses);
+            });
     });
+}
+
+module.exports = {
+    getTweets: getTweets
 }

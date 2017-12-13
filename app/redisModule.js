@@ -7,9 +7,7 @@ client.on("error", function (err) {
 
 
 /*
-T:get retourne les tweets
 Stoque les tweets dans redis
-since: year-month-day
 */
 function write(statuses) {
 
@@ -33,3 +31,13 @@ function read() {
         });
     }
 }
+
+function close() {
+    client.quit();
+}
+
+module.exports = {
+    write: write,
+    read: read,
+    close: close
+};
