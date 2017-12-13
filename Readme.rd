@@ -1,24 +1,17 @@
-pname:          
-
-File:             
-
-Author: Marien , Stephan, Luis, Thomas
-
-Email address:    
-
-URL:              
-
-Description:      
+## Projet
 
 
-============================================================
+# Author:
+- Marien
+- Stephan
+- Luis
+- Thomas
 
-Info
+Email address:
 
-hello arnaud
+URL:
 
-
-
+Description:
 
 
 ============================================================
@@ -27,15 +20,15 @@ Construction
 
 
 
-base:           
+base:
 
-editor:         
+editor:
 
-other progs:    
+other progs:
 
-know bugs:      
+know bugs:
 
-build time:     
+build time:
 
 
 
@@ -51,7 +44,7 @@ Credits
 
 ============================================================
 
-Other maps by 
+Other maps by
 
 
 
@@ -61,11 +54,11 @@ Other maps by
 
 ============================================================
 
-Distribution / Copyright / Permissions 
+Distribution / Copyright / Permissions
 
 
 
-Copyright (c)  , 
+Copyright (c)  ,
 
 All rights reserved.
 
