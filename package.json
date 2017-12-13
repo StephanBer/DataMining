@@ -4,6 +4,7 @@
   "dependencies": {
     "fs": "0.0.1-security",
     "redis": "^2.8.0",
-    "twit": "^2.2.9"
+    "twit": "^2.2.9",
+    "vis": "^4.21.0"
   }
 }
