@@ -1,13 +1,3 @@
 # Add any directories, files, or patterns you don't want to be tracked by version control
 /node_modules
 /.idea
-!/medias/default.png
-!/medias/noise.svg
-!/medias/bus.svg
-!/medias/light.svg
-!/medias/waste.svg
-!/medias/water.svg
-!/medias/bank.svg
-!/medias/harmful.svg
-!/medias/road-cone.svg
-!/medias/tree.svg
