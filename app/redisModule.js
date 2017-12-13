@@ -14,7 +14,7 @@ function write(statuses) {
         //console.log(data.statuses.length);
 
         for(var i = 0; i < statuses.length; i++){
-            console.log(statuses[i]);
+            //console.log(statuses[i]);
             client.set("twit" + i, JSON.stringify(statuses[i].created_at));
             //client.set("twit" + i, "test" + i);
         }
