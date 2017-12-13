@@ -2,6 +2,7 @@
   "name": "DataMining",
   "version": "0.0.1",
   "dependencies": {
-    
+    "redis": "^2.8.0",
+    "twit": "^2.2.9"
   }
 }
