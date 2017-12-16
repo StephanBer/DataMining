@@ -32,12 +32,12 @@ Workflow Git:
 
 - [x] ```git checkout -b prenom/fonction```
 
+- [x] ```git pull``` pour recupere le travail des autres
+
 - [x] Faire les changement voulu
 
 - [x] ```git add <filename>```
-
 - [x] ```git commit -m "Message de validation"```
-
 - [x] ```git push```
 
 - [x] ouvrir un pull request dans github
