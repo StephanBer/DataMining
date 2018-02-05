@@ -3,14 +3,16 @@ var redis = require('./app/redisModule');
 var tweeter = require('./app/tweeterModule');
 var classification = require('./app/classificationModule');
 
-tweeter.getTweets('citroen', '2017-10-24')
+/*tweeter.getTweets('citroen', '2017-10-24')
     .then(function (tweets) {
         console.log(tweets[0].user.screen_name);
         console.log(tweets[0].text);
         console.log(tweets[0].created_at);
         console.log(tweets[0].lang);
         redis.write(tweets);
-    })
+    });*/
+
+redis.read();
 
 
 setTimeout(function() {redis.close}, 2000);

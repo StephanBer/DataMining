@@ -14,9 +14,7 @@ function write(statuses) {
         //console.log(data.statuses.length);
 
         for(var i = 0; i < statuses.length; i++){
-            //console.log(statuses[i]);
-            client.set("twit" + i, JSON.stringify(statuses[i].created_at));
-            //client.set("twit" + i, "test" + i);
+            client.set("twit" + i, JSON.stringify(statuses[i]));
         }
 }
 
@@ -25,7 +23,11 @@ function read() {
     for(var i = 0; i < 10; i++) {
         client.get("twit" + i, function (err, reply) {
             if(reply != null){
-                console.log(reply);
+                var twit = JSON.parse(reply);
+                console.log(twit.user.screen_name);
+                console.log(twit.text);
+                console.log(twit.created_at);
+                console.log(twit.lang);
                 console.log();
             }
         });
