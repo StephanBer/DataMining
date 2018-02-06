@@ -7,7 +7,7 @@ client.on("error", function (err) {
 
 
 /*
-Stoque les tweets dans redis
+Stocke les tweets dans redis
 */
 function write(statuses) {
 
@@ -16,6 +16,7 @@ function write(statuses) {
         for(var i = 0; i < statuses.length; i++){
             client.set("twit" + i, JSON.stringify(statuses[i]));
         }
+        client.quit();
 }
 
 // lit les tweets dans la base

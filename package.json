@@ -2,7 +2,10 @@
   "name": "DataMining",
   "version": "0.0.1",
   "dependencies": {
+    "country-language": "^0.1.7",
     "fs": "0.0.1-security",
+    "i18n-iso-countries": "^3.4.0",
+    "nltk-stopwords": "^1.0.3",
     "redis": "^2.8.0",
     "twit": "^2.2.9",
     "vis": "^4.21.0"
