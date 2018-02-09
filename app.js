@@ -7,7 +7,7 @@ mongoose.connect('mongodb://localhost:27017/tweeter');
 var db          = mongoose.connection;
 var Tweet = require('./app/tweet');
 var User = require('./app/user');
-var StopWord = require('./app/stopWord');
+var Stopword = require('./app/stopword');
 var stopwords = require('nltk-stopwords');
 var countryLanguage = require('country-language');
 var fs = require('fs');
@@ -38,16 +38,14 @@ tweeter.getTweets('citroen', '2018-02-01')
                         if (!results) {
                             var t = createTweet(tweet);
                             t.save();
-
                             t.stopwords.forEach(function(stopword){
-                                var s = createStopWord(stopword);
-                                StopWord.findById(stopword, function (err, results) {
-                                    if (results.length) {
-                                        s.save();
-                                    } else {
-                                        results.occurences++;
-                                        results.save();
-                                    }
+                                var s = createStopword(stopword);
+
+                                var query = {'_id' : stopword};
+                                var test = { $inc: { occurences: 1 } };
+                                Stopword.findOneAndUpdate(query, test, {upsert:true}, function(err, doc){
+                                    if (err) console.log("merde");
+                                    console.log("ok");
                                 });
                             });
                         }
@@ -91,14 +89,13 @@ function createUser(user){
     return u;
 }
 
-function createStopWord(stopword){
-    var s = new StopWord();
+function createStopword(stopword){
+    var s = new Stopword();
     s._id = stopword;
     s.occurences = 1;
     s.hashtag = (stopword.substring(0, 1) == "#");
     return s;
 }
-
 
 // BLABLA...
 /*
