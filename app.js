@@ -7,8 +7,10 @@ mongoose.connect('mongodb://localhost:27017/tweeter');
 var db          = mongoose.connection;
 var Tweet = require('./app/tweet');
 var User = require('./app/user');
+var StopWord = require('./app/stopWord');
 var stopwords = require('nltk-stopwords');
 var countryLanguage = require('country-language');
+var fs = require('fs');
 
 /*for(var i; i<100; i++){
     redis.close;
@@ -23,10 +25,9 @@ tweeter.getTweets('citroen', '2018-02-01')
                 console.log(tweet.created_at);
                 console.log(tweet.lang);
                 console.log();*/
-                console.log(tweet.lang);
-                console.log(countryLanguage.getLanguage(tweet.lang.toUpperCase()).name[0]);
                 var language = countryLanguage.getLanguage(tweet.lang.toUpperCase()).name[0];
-                if(language) {
+                var path = "./node_modules/nltk-stopwords/data/stopwords/" + language;
+                if (fs.existsSync(path)) {
                     User.findById(tweet.user.id, function (err, results) {
                         if (!results) {
                             var u = createUser(tweet.user);
@@ -37,6 +38,18 @@ tweeter.getTweets('citroen', '2018-02-01')
                         if (!results) {
                             var t = createTweet(tweet);
                             t.save();
+
+                            t.stopwords.forEach(function(stopword){
+                                var s = createStopWord(stopword);
+                                StopWord.findById(stopword, function (err, results) {
+                                    if (results.length) {
+                                        s.save();
+                                    } else {
+                                        results.occurences++;
+                                        results.save();
+                                    }
+                                });
+                            });
                         }
                     });
                 }
@@ -49,6 +62,8 @@ Tweet.find(function(err, tweets) {
         console.log(tweet.text);*/
     });
 });
+
+///////////////////////////////////
 
 function createTweet(tweet){
     var t = new Tweet();
@@ -74,6 +89,14 @@ function createUser(user){
     u._id = user.id;
     u.name = user.name;
     return u;
+}
+
+function createStopWord(stopword){
+    var s = new StopWord();
+    s._id = stopword;
+    s.occurences = 1;
+    s.hashtag = (stopword.substring(0, 1) == "#");
+    return s;
 }
 
 

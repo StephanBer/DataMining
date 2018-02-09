@@ -12,7 +12,7 @@ var T = new Twit({
 since: year-month-day*/
 function getTweets(sujet, date) {
     return new Promise(function (fulfill, reject) {
-        T.get('search/tweets', {q: sujet + ' since:' + date, count: 2})
+        T.get('search/tweets', {q: sujet + ' since:' + date, count: 10})
             .then(function (result) {
                 fulfill(result.data.statuses);
             });
