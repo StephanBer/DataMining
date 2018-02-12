@@ -34,9 +34,20 @@ router.use(function (req, res, next) {
     next();
 });
 
-// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
+router.get('/miserables.json', function(req, res) {
+    var options = {root: './app/graph'};
+    res.sendFile('/miserables.json', options);
+});
+
+router.get('/graph.json', function(req, res) {
+    var options = {root: './app/graph'};
+    res.sendFile('/graph.json', options);
+});
+
 router.get('/', function(req, res) {
-    res.json({ message: 'API is running!' });
+    //res.json({ message: 'API is running!' });
+    var options = {root: './app'};
+    res.sendFile('/index.html', options);
 });
 
 app.use('', router);
