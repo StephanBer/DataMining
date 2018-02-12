@@ -2,6 +2,7 @@
 //var redis = require('./app/redisModule');
 var tweeter = require('./app/tweeterModule');
 var classification = require('./app/classificationModule');
+var graph = require('./app/graphModule');
 var mongoose    = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/tweeter');
 var db          = mongoose.connection;
@@ -12,16 +13,12 @@ var stopwords = require('nltk-stopwords');
 var countryLanguage = require('country-language');
 var fs = require('fs');
 
-/*for(var i; i<100; i++){
-    redis.close;
-}*/
-
 tweeter.getTweets('citroen', '2018-02-01')
     .then(function (tweets) {
 
             tweets.forEach(function(tweet){
-                /*console.log(tweet.user.screen_name);
-                console.log(tweet.text);
+                //console.log(tweet);
+                /*console.log(tweet.text);
                 console.log(tweet.created_at);
                 console.log(tweet.lang);
                 console.log();*/
@@ -42,10 +39,10 @@ tweeter.getTweets('citroen', '2018-02-01')
                                 var s = createStopword(stopword);
 
                                 var query = {'_id' : stopword};
-                                var test = { $inc: { occurences: 1 } };
+                                var test = { $set: {hashtag: (stopword.substring(0, 1) == "#")},$inc: { occurences: 1 } };
                                 Stopword.findOneAndUpdate(query, test, {upsert:true}, function(err, doc){
-                                    if (err) console.log("merde");
-                                    console.log("ok");
+                                    /*if (err) console.log("zut");
+                                    console.log("ok");*/
                                 });
                             });
                         }

@@ -2,9 +2,13 @@
   "name": "DataMining",
   "version": "0.0.1",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "country-language": "^0.1.7",
+    "d3": "^4.13.0",
+    "express": "^4.16.2",
     "fs": "0.0.1-security",
     "i18n-iso-countries": "^3.4.0",
+    "jsnetworkx": "^0.3.4",
     "nltk-stopwords": "^1.0.3",
     "redis": "^2.8.0",
     "twit": "^2.2.9",
